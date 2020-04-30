@@ -1,7 +1,8 @@
 {
-  "name": "ionic4PWA",
+  "name": "DemoPWA",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

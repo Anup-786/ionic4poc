@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Bluetooth Devices
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="bluetoothSupport">
+    <ion-item *ngFor="let item of bluetoothList" (click)="selectPrinter(item)">
+      {{item?.name}} {{item?.id}}
+    </ion-item>
+  </ion-list>
+  <ion-label *ngIf="connectedDevice">Connected Device: {{connectedDevice?.name}}</ion-label>
+  <ion-button *ngIf="connectedDevice" expand="full" color="danger" (click)="sendData()">Send Data</ion-button>
+  <ion-button *ngIf="connectedDevice" expand="full" color="primary" (click)="disconnect()">Disconnect</ion-button>
+
+  <ion-label *ngIf="!bluetoothSupport">Bluetooth feature not supported</ion-label>
+</ion-content>
